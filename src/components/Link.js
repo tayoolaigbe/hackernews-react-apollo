@@ -1,5 +1,5 @@
 import React from 'react';
-import { AUTH_TOKEN } from '../constants';
+import { AUTH_TOKEN, LINKS_PER_PAGE } from '../constants';
 import { useQuery, useMutation, gql } from '@apollo/client';
 import { timeDifferenceForDate } from '../utils';
 import { FEED_QUERY } from './LinkList';
@@ -58,7 +58,7 @@ const Link = props => {
 		},
 	});
 
-	// const take = LINKS_PER_PAGE;
+	const take = LINKS_PER_PAGE;
 	const skip = 0;
 	const orderBy = { createdAt: 'desc' };
 

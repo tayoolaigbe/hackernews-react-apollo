@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-
+import { AUTH_TOKEN, LINKS_PER_PAGE } from '../constants';
 import { useMutation, gql } from '@apollo/client';
 import { FEED_QUERY } from './LinkList';
 
