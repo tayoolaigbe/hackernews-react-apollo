@@ -27,6 +27,9 @@ const VOTE_MUTATION = gql`
 const Link = props => {
 	const { link } = props;
 	const authToken = localStorage.getItem(AUTH_TOKEN);
+	const take = LINKS_PER_PAGE;
+	const skip = 0;
+	const orderBy = { createdAt: 'desc' };
 
 	const [vote] = useMutation(VOTE_MUTATION, {
 		variables: {
@@ -35,6 +38,11 @@ const Link = props => {
 		update(cache, { data: { vote } }) {
 			const { feed } = cache.readQuery({
 				query: FEED_QUERY,
+				variables: {
+					take,
+					skip,
+					orderBy,
+				},
 			});
 
 			const updatedLinks = feed.links.map(feedLink => {
@@ -54,13 +62,14 @@ const Link = props => {
 						links: updatedLinks,
 					},
 				},
+				variables: {
+					take,
+					skip,
+					orderBy,
+				},
 			});
 		},
 	});
-
-	const take = LINKS_PER_PAGE;
-	const skip = 0;
-	const orderBy = { createdAt: 'desc' };
 
 	return (
 		<div className="flex mt2 items-start">
