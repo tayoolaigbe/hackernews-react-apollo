@@ -9,14 +9,18 @@ const Header = () => {
 	return (
 		<div className="flex pa1 justify-between nowrap orange">
 			<div className="flex flex-fixed black">
-				<div className="fw7 mr1">Hacker News</div>
+				<div className="fw7 mr1">
+					<Link to="/" className="ml1 no-underline black">
+						Hacker News
+					</Link>
+				</div>
 				<Link to="/" className="ml1 no-underline black">
 					new
 				</Link>
 				<div className="ml1">|</div>
-  <Link to="/search" className="ml1 no-underline black">
-    search
-  </Link>
+				<Link to="/search" className="ml1 no-underline black">
+					search
+				</Link>
 				<div className="ml1">|</div>
 				<Link to="/top" className="ml1 no-underline black">
 					top
